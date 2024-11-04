@@ -16,16 +16,23 @@ else:
   # Create an OpenAI client.
    client = OpenAI(api_key=openai_api_key)
 
-# Show title and description.
+chat = ChatOpenAI(model="gpt-4o-mini", temperature=0.8, openai_api_key=openai_api_key)
+
 ## ANSWER 1 - USER INPUT: 
 st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
 prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
-# Ask user for their OpenAI API key via `st.text_input`.
-# Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
-# via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
+# Classifying Feedback - 
+#feedback_classification = ""Analyze the review shared by the client and classify it as a 
+                            1)negative expierince caused by the airline, 
+                            2)negative expierince that was beyond the airline's control, or 
+                            3)positive experience Feedback : {feedback} ""
 
+
+
+
+## ANSWER 2 - Handling Negative Experiences Caused by the Airline
 
     #Create a session state variable to store the chat messages. This ensures that the
     # messages persist across reruns.
