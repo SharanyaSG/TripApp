@@ -1,14 +1,8 @@
 import streamlit as st
-from langchain.prompts import PromptTemplate
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import LLMChain
-import os
+from openai import OpenAI 
+import os 
 
-#import streamlit as st
-#from openai import OpenAI 
-#import os 
-
-# ADDED LIBRARIES
+# ADDED LIBRARIES - these keep giving  me errors
 #from langchain.chat_models import ChatOpenAI
 #from langchain.chains import LLMChain, RoutingChain
 #from langchain.prompts import PromptTemplate
