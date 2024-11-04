@@ -19,7 +19,7 @@ else:
    client = OpenAI(api_key=openai_api_key)
 
 # Generate a response using the OpenAI API.
-      stream = client.chat.completions.create( model="gpt-4o-mini", temperature = 0.8, stream=True)
+stream = client.chat.completions.create( model="gpt-4o-mini", temperature = 0.8, stream=True)
 
         # Stream the response to the chat using `st.write_stream`, then store it in 
         # session state.
