@@ -11,6 +11,16 @@ st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
 user_feedback = st.text_area("Enter your feedback here please:", "")
 
+if st.button("Submit Feedback"):
+    if user_feedback:
+        # Run the routing chain with user feedback
+        response = routing_chain.run({"feedback": user_feedback})
+        
+        # Display the response
+        st.write(response)
+    else:
+        st.write("Please enter your experience before submitting.")
+
 # Ask user for their OpenAI API key via `st.text_input`.
 # Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
 # via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
