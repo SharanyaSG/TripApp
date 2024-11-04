@@ -1,7 +1,16 @@
 import streamlit as st
+import subprocess
+import sys
 from openai import OpenAI 
 from langchain.chat_models import ChatOpenAI
 import os 
+
+# Install langchain if it is not already available
+try:
+    from langchain.chat_models import ChatOpenAI
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "langchain"])
+    from langchain.chat_models import ChatOpenAI
 # ADDED LIBRARIES
 #from langchain.chains import LLMChain, RoutingChain
 #from langchain.prompts import PromptTemplate
