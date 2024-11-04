@@ -1,5 +1,6 @@
 import streamlit as st
-from openai import OpenAI
+from openai import OpenAI 
+import os 
 
 # ADDED LIBRARIES
 #from langchain.chains import LLMChain, RoutingChain
@@ -7,14 +8,14 @@ from openai import OpenAI
 #from langchain.chat_models import ChatOpenAI
 
 #MY API
-openai_api_key = userdata.get('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')  
+#openai_api_key = userdata.get('xxx')  
 
 # Show title and description.
 ## ANSWER 1 - USER INPUT: 
 st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
-user_feedback = st.text_area("Enter your feedback here please:", "")
-
+#user_feedback = st.text_area("Enter your feedback here please:", "")
+prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
 # Ask user for their OpenAI API key via `st.text_input`.
 # Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
@@ -58,6 +59,6 @@ user_feedback = st.text_area("Enter your feedback here please:", "")
 
         # Stream the response to the chat using `st.write_stream`, then store it in 
         # session state.
-        with st.chat_message("assistant"):
-            response = st.write_stream(stream)
-        st.session_state.messages.append({"role": "assistant", "content": response})
+       # with st.chat_message("assistant"):
+           # response = st.write_stream(stream)
+       # st.session_state.messages.append({"role": "assistant", "content": response})
