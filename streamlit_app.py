@@ -39,13 +39,24 @@ prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
 ##ANSWER 2 - Handling Negative Experiences Caused by the Airline
 airlinefault = PromptTemplate.from_template("The airline was responsible for the user's negative experince and hence, the response would be that customer care will reach out to you to resolve your issue")
-negative1_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
+negativereview1_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
 
 ## ANSWER 3 - Handling Negative Experiences NOT Caused by the Airline
 notairlinefault = PromptTemplate.from_template("The airline was not responsible for the user's negative experince and hence, the response would be that we cannot help you as this was not the airline's fault")
-negative2_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
+negativereview2_not_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
                                           
 ## ANSWER 4 - Handling Negative Experiences NOT Caused by the Airline
 notairlinefault = PromptTemplate.from_template("The user had a positive experience and hence, the response would be thanking the user for their feedback and hoping that they travel with the airline again")
-positive_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
+positive_airline_review = LLMChain(llm=chat, prompt=airlinefault)
 
+## ROUTING CODE TO TEMPLATE ANSWERS ABOVE
+def review_chain(reviews):
+    if "bad" in reviews or "lost luggage" in reviews or "rude staff" in reviews or "bad food" in reviews:
+        return negativereview1_airline_fault
+    elif "turbulance" in user_input or "bad weather" in user_input:
+        return negativereview2_not_airline_fault
+    elif "great" in user_input or "good" in user_input or "happy" in user_input:
+        return positive_airline_review
+    else:
+        return None
+       
