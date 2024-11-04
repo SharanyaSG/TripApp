@@ -20,7 +20,7 @@ else:
 # Generate a response using the OpenAI API
 client = OpenAI()
 response = client.chat.completions.create(
-  model="gpt-4o-mini", temperature = 0.8,
+  model="gpt-4o-mini", temperature = 0.8
   #messages=[
     #{"role": "system", "content": "Complete the following prefix"},
    # {"role": "user", "content": prompt}
@@ -29,7 +29,7 @@ response = client.chat.completions.create(
 ### Display
 #st.write(
     #response.choices[0].message.content
-)
+#)
 
         # Stream the response to the chat using `st.write_stream`, then store it in 
         # session state.
