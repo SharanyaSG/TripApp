@@ -4,7 +4,6 @@ from openai import OpenAI
 #from langchain.chat_models import ChatOpenAI
 import os 
 
-    
 # ADDED LIBRARIES
 #from langchain.chains import LLMChain, RoutingChain
 #from langchain.prompts import PromptTemplate
@@ -21,15 +20,15 @@ else:
 # Generate a response using the OpenAI API
 client = OpenAI()
 response = client.chat.completions.create(
-  model="gpt-4o-mini",
-  messages=[
-    {"role": "system", "content": "Complete the following prefix"},
-    {"role": "user", "content": prompt}
-  ],
+  model="gpt-4o-mini", temperature = 0.8,
+  #messages=[
+    #{"role": "system", "content": "Complete the following prefix"},
+   # {"role": "user", "content": prompt}
+  #],
 )
 ### Display
-st.write(
-    response.choices[0].message.content
+#st.write(
+    #response.choices[0].message.content
 )
 
         # Stream the response to the chat using `st.write_stream`, then store it in 
