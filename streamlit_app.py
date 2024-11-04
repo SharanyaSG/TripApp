@@ -15,8 +15,8 @@ if not openai_api_key:
    st.info("Please add your OpenAI API key to continue.", icon="🗝️")
 else:
   # Create an OpenAI client.
-   client = OpenAI(api_key=openai_api_key)
-   response = client.chat.completions.create(model="gpt-4o-mini", temperature = 0.8)
+   client = OpenAI(model="gpt-4o-mini", temperature = 0.8, api_key=openai_api_key)
+   #response = client.chat.completions.create(model="gpt-4o-mini", temperature = 0.8)
 # Generate a response using the OpenAI API
 #client = OpenAI()
 #response = client.chat.completions.create(model="gpt-4o-mini", temperature = 0.8)
