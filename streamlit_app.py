@@ -9,7 +9,7 @@ from langchain.chains import LLMChain, RoutingChain
 from langchain.prompts import PromptTemplate
 
 #MY API
-#api_key = st.secrets["OpenAIkey"] #My API key is giving me errors so I used the option to ask users for their API insteaf
+#api_key = st.secrets["OpenAIkey"] #My API key is giving me a lot of errors so I used the option to ask users for their API instead
 openai_api_key = st.text_input("OpenAI API Key", type="password")
 if not openai_api_key:
    st.info("Please add your OpenAI API key to continue.", icon="🗝️")
@@ -38,34 +38,15 @@ st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
 prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
-# Classifying Feedback - 
-#feedback_classification = ""Analyze the review shared by the client and classify it as a 
-                            #1)negative expierince caused by the airline, 
-                            #2)negative expierince that was beyond the airline's control, or 
-                            #3)positive experience Feedback : {feedback} ""
+##ANSWER 2 - Handling Negative Experiences Caused by the Airline
+airlinefault = PromptTemplate.from_template("The airline was responsible for the user's negative experince and hence, the response would be that customer care will reach out to you to resolve your issue")
+negative1_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
 
+## ANSWER 3 - Handling Negative Experiences NOT Caused by the Airline
+notairlinefault = PromptTemplate.from_template("The airline was not responsible for the user's negative experince and hence, the response would be that we cannot help you as this was not the airline's fault")
+negative2_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
+                                          
+## ANSWER 4 - Handling Negative Experiences NOT Caused by the Airline
+notairlinefault = PromptTemplate.from_template("The user had a positive experience and hence, the response would be thanking the user for their feedback and hoping that they travel with the airline again")
+positive_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
 
-
-
-## ANSWER 2 - Handling Negative Experiences Caused by the Airline
-
-    #Create a session state variable to store the chat messages. This ensures that the
-    # messages persist across reruns.
-   #if "messages" not in st.session_state:
-    # st.session_state.messages = []
-
-    # Display the existing chat messages via `st.chat_message`.
-    #for message in st.session_state.messages:
-        #with st.chat_message(message["role"]):
-           # st.markdown(message["content"])
-
-    # Create a chat input field to allow the user to enter a message. This will display
-    # automatically at the bottom of the page.
-   # if prompt := st.chat_input("What is up?"):
-
-        # Store and display the current prompt.
-       # st.session_state.messages.append({"role": "user", "content": prompt})
-       # with st.chat_message("user"):
-          #  st.markdown(prompt)
-
-    
