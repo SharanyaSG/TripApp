@@ -2,10 +2,10 @@ import streamlit as st
 from openai import OpenAI 
 import os 
 
-# ADDED LIBRARIES - these keep giving  me errors
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import LLMChain, RoutingChain
-from langchain.prompts import PromptTemplate
+# ADDED LIBRARIES - these keep giving  me errors (I think it has something to do with my Open AI Key)
+#from langchain.chat_models import ChatOpenAI
+#from langchain.chains import LLMChain, RoutingChain
+#from langchain.prompts import PromptTemplate
 
 #MY API
 #api_key = st.secrets["OpenAIkey"] #My API key is giving me a lot of errors so I used the option to ask users for their API instead
