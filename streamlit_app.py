@@ -8,7 +8,7 @@ import os
 #from langchain.chat_models import ChatOpenAI
 
 #MY API
-os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
+api_key = st.secrets["OpenAIkey"]
 
 # Show title and description.
 ## ANSWER 1 - USER INPUT: 
