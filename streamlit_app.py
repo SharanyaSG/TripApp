@@ -1,9 +1,12 @@
 import streamlit as st
 from openai import OpenAI
 # ADDED LIBRARIES
-#from langchain.chains import LLMChain, RoutingChain
-#from langchain.prompts import PromptTemplate
-#from langchain.chat_models import ChatOpenAI
+from langchain.chains import LLMChain, RoutingChain
+from langchain.prompts import PromptTemplate
+from langchain.chat_models import ChatOpenAI
+
+openai_api_key = userdata.get('MyOpenAIKey')
+chat = ChatOpenAI(openai_api_key=openai_api_key)
 
 # Show title and description.
 ## ANSWER 1 - USER INPUT: 
