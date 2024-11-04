@@ -1,12 +1,17 @@
-
 import streamlit as st
-from openai import OpenAI 
-import os 
+from langchain.prompts import PromptTemplate
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import LLMChain
+import os
+
+#import streamlit as st
+#from openai import OpenAI 
+#import os 
 
 # ADDED LIBRARIES
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import LLMChain, RoutingChain
-from langchain.prompts import PromptTemplate
+#from langchain.chat_models import ChatOpenAI
+#from langchain.chains import LLMChain, RoutingChain
+#from langchain.prompts import PromptTemplate
 
 #MY API
 #api_key = st.secrets["OpenAIkey"] #My API key is giving me a lot of errors so I used the option to ask users for their API instead
