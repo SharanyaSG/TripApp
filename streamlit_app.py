@@ -9,6 +9,7 @@ import os
 
 #MY API
 api_key = st.secrets["OpenAIkey"]
+st.write("Your API key is loaded successfully!" if api_key else "Failed to load API key.")
 
 # Show title and description.
 ## ANSWER 1 - USER INPUT: 
