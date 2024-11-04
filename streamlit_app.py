@@ -1,13 +1,10 @@
 import streamlit as st
-#from openai import OpenAI 
+from openai import OpenAI 
 from langchain.chat_models import ChatOpenAI
 import os 
-
-
 # ADDED LIBRARIES
 #from langchain.chains import LLMChain, RoutingChain
 #from langchain.prompts import PromptTemplate
-
 
 #MY API
 #api_key = st.secrets["OpenAIkey"] #My API key is giving me errors so I used the option to ask users for their API insteaf
@@ -18,7 +15,7 @@ else:
   # Create an OpenAI client.
    client = OpenAI(api_key=openai_api_key)
 
-chat = ChatOpenAI(model="gpt-4o-mini", temperature=0.8, openai_api_key=openai_api_key)
+chat = OpenAI(model="gpt-4o-mini", temperature=0.8, openai_api_key=openai_api_key)
 
 ## ANSWER 1 - USER INPUT: 
 st.title(" TRAVEL REVIEW APP")
