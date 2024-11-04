@@ -3,9 +3,9 @@ from openai import OpenAI
 import os 
 
 # ADDED LIBRARIES - these keep giving  me errors
-#from langchain.chat_models import ChatOpenAI
-#from langchain.chains import LLMChain, RoutingChain
-#from langchain.prompts import PromptTemplate
+from langchain.chat_models import ChatOpenAI
+from langchain.chains import LLMChain, RoutingChain
+from langchain.prompts import PromptTemplate
 
 #MY API
 #api_key = st.secrets["OpenAIkey"] #My API key is giving me a lot of errors so I used the option to ask users for their API instead
@@ -36,6 +36,17 @@ else:
 st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
 
+#USER INTERFACE DETAILS
+reviews = st.text_input("Enter your feedback here please:", "My trip was")
+if st.button("SUBMIT REVIEW"):
+    routing_code = review_chain(reviews)
+   
+    if routing_code:
+        userreview = routing_code.run(reviews=reviews)
+        st.write("USER REVIEW :", userreview)
+    else:
+        st.write("Thank you for your review. We take your review seriously, Please fly with us again! ")
+
 ##ANSWER 2 - Handling Negative Experiences Caused by the Airline
 airlinefault = PromptTemplate.from_template("The airline was responsible for the user's negative experince and hence, the response would be that customer care will reach out to you to resolve your issue")
 negativereview1_airline_fault = LLMChain(llm=chat, prompt=airlinefault)
@@ -59,14 +70,4 @@ def review_chain(reviews):
     else:
         return None
        
-#USER INTERFACE DETAILS
-reviews = st.text_input("Enter your feedback here please:", "My trip was")
-if st.button("SUBMIT REVIEW"):
-    routing_code = review_chain(reviews)
-   
-    if routing_code:
-        userreview = routing_code.run(reviews=reviews)
-        st.write("USER REVIEW :", userreview)
-    else:
-        st.write("Thank you for your review. We take your review seriously, Please fly with us again! ")
 
