@@ -8,13 +8,12 @@ import os
 #from langchain.chat_models import ChatOpenAI
 
 #MY API
-#openai_api_key = userdata.get('xxx')  
+os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
 
 # Show title and description.
 ## ANSWER 1 - USER INPUT: 
 st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
-#user_feedback = st.text_area("Enter your feedback here please:", "")
 prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
 # Ask user for their OpenAI API key via `st.text_input`.
