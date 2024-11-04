@@ -1,11 +1,15 @@
 import streamlit as st
 from openai import OpenAI
+# ADDED LIBRARIES
 from langchain.chains import LLMChain, RoutingChain
 from langchain.prompts import PromptTemplate
 from langchain.chat_models import ChatOpenAI
 
 # Show title and description.
-st.title("💬 Chatbot")
+## ANSWER 1 - USER INPUT: 
+st.title(" TRAVEL REVIEW APP")
+st.header("Share with us your experience of the latest trip")
+
 st.write(
     "This is a simple chatbot that uses OpenAI's GPT-3.5 model to generate responses. "
     "To use this app, you need to provide an OpenAI API key, which you can get [here](https://platform.openai.com/account/api-keys). "
