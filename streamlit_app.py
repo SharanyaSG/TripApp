@@ -17,12 +17,12 @@ else:
   # Create an OpenAI client.
    client = OpenAI(api_key=openai_api_key)
 
-response = client.chat.completions.create(model="gpt-4o-mini", temperature = 0.8, 
-  messages=[
-    {"role": "system", "content": "Complete the following prefix"},
-    {"role": "user", "content": prompt}
-  ],
-)
+#response = client.chat.completions.create(model="gpt-4o-mini", temperature = 0.8, 
+  #messages=[
+  #  {"role": "system", "content": "Complete the following prefix"},
+   # {"role": "user", "content": prompt}
+#  ],
+#)
 ### Display
 #st.write(
     #response.choices[0].message.content
