@@ -25,9 +25,9 @@ prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
 # Classifying Feedback - 
 #feedback_classification = ""Analyze the review shared by the client and classify it as a 
-                            1)negative expierince caused by the airline, 
-                            2)negative expierince that was beyond the airline's control, or 
-                            3)positive experience Feedback : {feedback} ""
+                            #1)negative expierince caused by the airline, 
+                            #2)negative expierince that was beyond the airline's control, or 
+                            #3)positive experience Feedback : {feedback} ""
 
 
 
