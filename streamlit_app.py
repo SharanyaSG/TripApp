@@ -18,7 +18,14 @@ else:
   # Create an OpenAI client.
    client = OpenAI(api_key=openai_api_key)
 
-chat = OpenAI(model="gpt-4o-mini", temperature=0.8, openai_api_key=openai_api_key)
+# Generate a response using the OpenAI API.
+      stream = client.chat.completions.create( model="gpt-4o-mini", temperature = 0.8, stream=True)
+
+        # Stream the response to the chat using `st.write_stream`, then store it in 
+        # session state.
+       # with st.chat_message("assistant"):
+           # response = st.write_stream(stream)
+       # st.session_state.messages.append({"role": "assistant", "content": response})
 
 ## ANSWER 1 - USER INPUT: 
 st.title(" TRAVEL REVIEW APP")
@@ -55,18 +62,4 @@ prompt = st.text_input("Enter your feedback here please:", "My trip was")
        # with st.chat_message("user"):
           #  st.markdown(prompt)
 
-        # Generate a response using the OpenAI API.
-      #  stream = client.chat.completions.create(
-           # model="gpt-3.5-turbo",
-            #messages=[
-            #    {"role": m["role"], "content": m["content"]}
-            #    for m in st.session_state.messages
-           # ],
-           # stream=True,
-       # )
-
-        # Stream the response to the chat using `st.write_stream`, then store it in 
-        # session state.
-       # with st.chat_message("assistant"):
-           # response = st.write_stream(stream)
-       # st.session_state.messages.append({"role": "assistant", "content": response})
+    
