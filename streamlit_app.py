@@ -9,16 +9,7 @@ import os
 
 #MY API
 #api_key = st.secrets["OpenAIkey"]
-# Ask user for their OpenAI API key via `st.text_input`.
-# Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
-# via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
-openai_api_key = st.text_input("OpenAI API Key", type="password")
-if not openai_api_key:
-   st.info("Please add your OpenAI API key to continue.", icon="🗝️")
-else:
 
-    Create an OpenAI client.
-   client = OpenAI(api_key=openai_api_key)
 
 # Show title and description.
 ## ANSWER 1 - USER INPUT: 
@@ -26,16 +17,24 @@ st.title(" TRAVEL REVIEW APP")
 st.header("Share with us your experience of the latest trip")
 prompt = st.text_input("Enter your feedback here please:", "My trip was")
 
-
+# Ask user for their OpenAI API key via `st.text_input`.
+# Alternatively, you can store the API key in `./.streamlit/secrets.toml` and access it
+# via `st.secrets`, see https://docs.streamlit.io/develop/concepts/connections/secrets-management
+openai_api_key = st.text_input("OpenAI API Key", type="password")
+if not openai_api_key:
+   st.info("Please add your OpenAI API key to continue.", icon="🗝️")
+else:
+   Create an OpenAI client.
+   client = OpenAI(api_key=openai_api_key)
 
     #Create a session state variable to store the chat messages. This ensures that the
     # messages persist across reruns.
-   # if "messages" not in st.session_state:
-     #   st.session_state.messages = []
+   #if "messages" not in st.session_state:
+    # st.session_state.messages = []
 
     # Display the existing chat messages via `st.chat_message`.
     #for message in st.session_state.messages:
-      #  with st.chat_message(message["role"]):
+        #with st.chat_message(message["role"]):
            # st.markdown(message["content"])
 
     # Create a chat input field to allow the user to enter a message. This will display
